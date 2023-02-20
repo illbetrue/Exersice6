@@ -3,11 +3,11 @@
 ## Hometask
 
 1. Fork this repository: JavaScript functions
-5. Clone your newly created repo: https://gitlab.com/<%your_gitlab_username%>/javascript-functions/
-6. Go to folder `javascript-functions`
-7. To install all dependencies use [`npm install`](https://docs.npmjs.com/cli/install)
-8. Do the tasks from "./src/index.js" file
-9. Run `npm run test:dev` in the command line
+2. Clone your newly created repo: https://gitlab.com/<%your_gitlab_username%>/javascript-functions/
+3. Go to folder `javascript-functions`
+4. To install all dependencies use [`npm install`](https://docs.npmjs.com/cli/install)
+5. Do the tasks from "./src/index.js" file
+6. Run `npm run test:dev` in the command line
 7. You will see the number of passing and failing tests
 
 ## Submit to AutoCode
