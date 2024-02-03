@@ -12,6 +12,7 @@
  * console.log(sum(-1, 1)) //0
  */
 function sum(a, b) {
+    return a + b;
 }
 
 /**
@@ -23,8 +24,16 @@ function sum(a, b) {
  * }
  * console.log(getFullName(person)) // John Dou
  */
-function getFullName(object) {
+function getFullName(person) {
+    return person.firstName + ' ' + person.lastName;
 }
+
+const person = {
+    firstName: "John",
+    lastName: "Dou"
+};
+
+console.log(getFullName(person));
 
 /**
  * write function that checks if number is odd
@@ -35,6 +44,7 @@ function getFullName(object) {
  * hint: try using Remainder: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder operator
  */
 function isOdd(n) {
+    return n % 2 !== 0;
 }
 
 /**
@@ -43,6 +53,20 @@ function isOdd(n) {
  * console.log(getShortest(["one", "three", "four"])) // one
  */
 function getShortest(wordArray) {
+    if (wordArray.length === 0) {
+        return undefined;
+    }
+
+    let shortestWord = wordArray[0];
+
+    for (let i = 1; i < wordArray.length; i++) {
+        const currentWord = wordArray[i];
+        if (currentWord.length < shortestWord.length) {
+            shortestWord = currentWord;
+        }
+    }
+
+    return shortestWord;
 }
 
 /**
@@ -51,6 +75,7 @@ function getShortest(wordArray) {
  * console.log(getGoogle(5)) // gooooogle
  */
 function getGoogle(n) {
+    return 'g' + 'o'.repeat(n) + 'gle';
 }
 
 /**
@@ -64,7 +89,13 @@ function getGoogle(n) {
  *    age: 42
  * }
  */
-function getUser(firstName, lastName, age) {
+
+function getUser(firstName = "John", lastName = "Dou", age = 42) {
+    return {
+        firstName: firstName,
+        lastName: lastName,
+        age: age
+    };
 }
 
 /**
@@ -77,6 +108,11 @@ function getUser(firstName, lastName, age) {
  */
 
 function getTotalPath(path) {
+    let totalDistance = 0;
+    for (let i = 0; i < path.length; i++) {
+        totalDistance += path[i].distance;
+    }
+    return totalDistance;
 }
 
 /**
@@ -91,6 +127,7 @@ function getTotalPath(path) {
 
 function discountFunction(percentage) {
     return function (amount) {
+        return amount - (amount * (percentage / 100));
     };
 }
 
@@ -107,12 +144,19 @@ const myObject = {
     age: 25,
     friends: ['Mike', 'Alan', 'Daniel'],
     keys() {
-        //write your code here
+        for (let key in this) {
+            console.log(key);
+        }
     },
     call() {
-        //write your code here
+        const bestFriend = this.friends[this.friends.length - 1];
+        return `My name is ${this.name} ${this.lastName}, and I am ${this.age} years old. My best friend is ${bestFriend}`;
     },
 };
+
+myObject.keys();
+console.log(myObject.call());
+
 
 module.exports = {
     sum,
